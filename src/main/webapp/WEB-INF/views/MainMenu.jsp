@@ -1,12 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Document comparer</title>
-</head>
-<body>
+<%@ include file="header.jsp" %>
 
-</body>
-</html>
+<div class="animated bounceInDown" style="font-size:32pt; font-family:arial; color:#990000; font-weight:bold">Document Comparison Service</div>
+
+</p>&nbsp;</p>&nbsp;</p>
+
+<table width="600" cellspacing="0" cellpadding="7" border="0">
+	<tr>
+		<td valign="top">
+
+			<form bgcolor="white" method="POST" enctype="multipart/form-data" action="doProcess">
+				<fieldset>
+					<legend><h3>Specify Details</h3></legend>
+
+					<b>Document Title :</b><br>
+					<input name="txtTitle" type="text" size="50"/>
+					<p/>
+					<input type="file" name="txtDocument"/>
+					<center><input type="submit" value="Compare Document"></center>
+				</fieldset>							
+			</form>	
+
+		</td>
+	</tr>
+</table>
+<%@ include file="footer.jsp" %>
