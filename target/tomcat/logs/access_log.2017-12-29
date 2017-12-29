@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [29/Dec/2017:00:05:36 +0000] "GET / HTTP/1.1" 404 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [29/Dec/2017:00:06:06 +0000] "GET / HTTP/1.1" 404 - http-bio-8080-exec-2 0
+0:0:0:0:0:0:0:1 - - [29/Dec/2017:00:08:46 +0000] "GET / HTTP/1.1" 404 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [29/Dec/2017:00:14:15 +0000] "GET / HTTP/1.1" 200 1294 http-bio-8080-exec-1 2546
+0:0:0:0:0:0:0:1 - - [29/Dec/2017:00:14:15 +0000] "GET /webjars/bootstrap/3.2.0/css/bootstrap.min.css HTTP/1.1" 200 109518 http-bio-8080-exec-2 16
+0:0:0:0:0:0:0:1 - - [29/Dec/2017:00:14:15 +0000] "GET /webjars/jquery/2.1.1/jquery.min.js HTTP/1.1" 200 84280 http-bio-8080-exec-3 35
+0:0:0:0:0:0:0:1 - - [29/Dec/2017:00:14:15 +0000] "GET /webjars/bootstrap/3.2.0/js/bootstrap.min.js HTTP/1.1" 200 31819 http-bio-8080-exec-4 42
+0:0:0:0:0:0:0:1 - - [29/Dec/2017:00:14:16 +0000] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-6 10
+0:0:0:0:0:0:0:1 - - [29/Dec/2017:00:21:15 +0000] "GET / HTTP/1.1" 200 1294 http-bio-8080-exec-1 2464
+0:0:0:0:0:0:0:1 - - [29/Dec/2017:16:11:41 +0000] "GET / HTTP/1.1" 200 265 http-bio-8080-exec-1 741
+0:0:0:0:0:0:0:1 - - [29/Dec/2017:16:11:41 +0000] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-2 3
