@@ -1,14 +1,18 @@
 package ie.gmit.sw;
 
+import javax.servlet.http.Part;
+
 public class CompareWorker implements WorkerPlan {
 
 	private String title;
+	private Part document;
 	private String jobName;
-	private String serverResult;
+	private String [] serverResult;
 	
-	public CompareWorker(String t) {
+	public CompareWorker(String t, Part d) {
 		this.title = t;
-		setJobName("Compare " + title + " server documents");
+		this.document = d;
+		setJobName("Compare " + title + "to server documents");
 	}
 	
 	public void run() {
@@ -23,7 +27,7 @@ public class CompareWorker implements WorkerPlan {
 		this.jobName = jobName;
 	}
 
-	public String getServerResult() {
+	public String [] getServerResult() {
 		return serverResult;
 	}
 

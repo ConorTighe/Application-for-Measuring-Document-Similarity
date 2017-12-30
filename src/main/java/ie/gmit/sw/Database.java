@@ -4,8 +4,8 @@ import java.io.File;
 
 public class Database implements DocumentMiddleware {
 
-	 private MyDocuments docs;
-	 private String fileName;
+	private MyDocuments docs;
+	private String fileName;
 	   
 	public Database(String fileName) {
 		this.fileName = fileName;

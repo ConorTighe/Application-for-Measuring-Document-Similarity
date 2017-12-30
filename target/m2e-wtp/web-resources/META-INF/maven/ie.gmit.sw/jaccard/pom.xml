@@ -5,7 +5,14 @@
 	<artifactId>jaccard</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-    
+
+	<repositories>
+		<repository>
+		    <id>in-project</id>
+		    <name>In Project Repo</name>
+		    <url>file://${project.basedir}/libs</url>
+		</repository>
+	</repositories>	
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
