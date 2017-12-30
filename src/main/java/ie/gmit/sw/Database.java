@@ -19,12 +19,13 @@ public class Database implements DocumentMiddleware {
 		return null;
 	}
 
-	public String lookupDocument(String s, File f) throws Exception {
+	public String lookup() throws Exception {
+		String res;
 		if(docs == null){
 			docs = new MyDocuments(fileName);
 	    }
-		docs.lookupDocument(s, f);
-		return null;
+		res = docs.lookup();
+		return res;
 	}
 
 }

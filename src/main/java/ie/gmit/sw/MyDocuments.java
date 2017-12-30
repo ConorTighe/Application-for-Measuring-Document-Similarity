@@ -21,8 +21,7 @@ public class MyDocuments implements DocumentMiddleware {
 		return null;
 	}
 
-	public String lookupDocument(String s, File f) throws Exception {
-		display();
+	public String lookup() throws Exception {
 		return null;
 	
 	}

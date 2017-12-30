@@ -28,7 +28,15 @@ public class Menu extends HttpServlet {
     
     // POST JSP Menu view
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	
+    	String result;
+    	if (request.getParameter("txtTitle") != null && request.getParameter("txtDocument") != null) {
+    		String title = request.getParameter("txtTitle");
+    		String document = request.getParameter("txtDocument");
+	        
+	        
+    	}else {
+    		
+    	}
     }   
 
 }
