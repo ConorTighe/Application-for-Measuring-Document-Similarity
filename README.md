@@ -6,3 +6,4 @@
 - Maven
 - Tomcat 7
 - RMI
+- db4o
