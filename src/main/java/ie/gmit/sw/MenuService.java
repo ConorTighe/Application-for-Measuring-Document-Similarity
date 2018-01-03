@@ -12,15 +12,16 @@ public class MenuService {
 	}
 	
 	public String [] CompareService(String t, Part p) {
-		String [] res = null;
-		
-		return res;
+		String [] result;
+		CompareWorker compareJob = new CompareWorker(t,p);
+		result = pool.addJob(compareJob);
+		return result;
 	}
 
 	public String [] AddingService(String t, Part p) {
 		String [] result;
-		AddingWorker lookupJob = new AddingWorker(t,p);
-		result = pool.addJob(lookupJob);
+		AddingWorker addingJob = new AddingWorker(t,p);
+		result = pool.addJob(addingJob);
 		return result;
 	}
 	

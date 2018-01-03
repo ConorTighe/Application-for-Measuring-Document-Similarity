@@ -1,17 +1,20 @@
 package ie.gmit.sw;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class Database implements DocumentMiddleware {
 
 	private MyDocuments docs;
 	private String fileName;
+	private ArrayList<String> text;
 	   
-	public Database(String fileName) {
-		this.fileName = fileName;
+	public Database(String s, ArrayList<String> file) {
+		this.text = file;
+		this.fileName = s;
 	}
 
-	public String compareDocument(String s, File f) throws Exception {
+	public String compareDocument(String s, ArrayList<String> f) throws Exception {
 		if(docs == null){
 			docs = new MyDocuments(fileName);
 	    }
@@ -19,13 +22,9 @@ public class Database implements DocumentMiddleware {
 		return null;
 	}
 
-	public String lookup() throws Exception {
-		String res;
-		if(docs == null){
-			docs = new MyDocuments(fileName);
-	    }
-		res = docs.lookup();
-		return res;
+	public String addDocument(String s, ArrayList<String> f) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
