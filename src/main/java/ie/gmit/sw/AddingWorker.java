@@ -1,5 +1,7 @@
 package ie.gmit.sw;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.Part;
 
 public class AddingWorker implements WorkerPlan {
@@ -7,7 +9,7 @@ public class AddingWorker implements WorkerPlan {
 	private String jobName;
 	private String title;
 	private Part document;
-	private Part serverResult;
+	private ArrayList<String> serverResult;
 	
 	public AddingWorker(String t, Part d) {
 		this.title = t;
@@ -19,7 +21,7 @@ public class AddingWorker implements WorkerPlan {
 		// TODO Auto-generated method stub
 	}
 
-	public String [] getServerResult() {
+	public ArrayList<String> getServerResult() {
 		// TODO Auto-generated method stub
 		return null;
 	}

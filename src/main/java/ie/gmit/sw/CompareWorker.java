@@ -12,7 +12,7 @@ public class CompareWorker implements WorkerPlan {
 	private String title;
 	private Part document;
 	private String jobName;
-	private String [] serverResult;
+	private ArrayList<String> serverResult;
 	Database db;
 	public CompareWorker(String t, Part d) {
 		this.title = t;
@@ -51,8 +51,12 @@ public class CompareWorker implements WorkerPlan {
 		this.jobName = jobName;
 	}
 
-	public String [] getServerResult() {
+	public ArrayList<String> getServerResult() {
 		return serverResult;
+	}
+
+	public void setServerResult(ArrayList<String> sResult) {
+		this.serverResult = sResult;
 	}
 
 	public String getTitle() {
@@ -63,7 +67,8 @@ public class CompareWorker implements WorkerPlan {
 		System.out.println("Sending file to databse...");
 		Database db = new Database(s,text);
 		System.out.println("Files being compared...");
-		db.compareDocument(s, text);
+		db.compareHandeler();
+		setServerResult(db.getDbResults());
 	}
 	
 }

@@ -3,6 +3,7 @@ package ie.gmit.sw;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,7 +34,7 @@ public class Menu extends HttpServlet {
     
     // POST JSP Menu view
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String [] result;
+    	ArrayList<String> result;
     	response.setContentType("text/html"); 
     	PrintWriter out = response.getWriter();
     	

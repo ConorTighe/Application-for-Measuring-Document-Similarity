@@ -1,5 +1,6 @@
 package ie.gmit.sw;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -22,8 +23,8 @@ public class WorkerPool {
 	}
 	
 	// For adding one of our Jobs to the Pool for execution by the pool threads
-	public String[] addJob(WorkerPlan job) {
-		String [] result;
+	public ArrayList<String> addJob(WorkerPlan job) {
+		ArrayList<String> result;
         // Adding new job to our queue
 		TaskAdded();
         System.out.println("Adding job " + getTaskNumber() + " to queue: " + job.getJobName());
