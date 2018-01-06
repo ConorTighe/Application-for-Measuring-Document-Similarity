@@ -16,11 +16,8 @@ public class Database {
 		DP = new DocumentProxy(this.fileName,this.text);
 	}
 
-	public void compareHandeler() throws Exception {
+	public ArrayList<String>  compareHandeler() throws Exception {
 		dbResults = DP.compareDocument();
-	}
-
-	public ArrayList<String> getDbResults() {
 		return dbResults;
 	}
 

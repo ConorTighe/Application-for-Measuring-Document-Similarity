@@ -17,7 +17,7 @@ public class CompareWorker implements WorkerPlan {
 	public CompareWorker(String t, Part d) {
 		this.title = t;
 		this.document = d;
-		setJobName("Compare " + title + "to server documents");
+		setJobName("Compare " + title + " to server documents");
 	}
 	
 	public void run() {
@@ -27,7 +27,6 @@ public class CompareWorker implements WorkerPlan {
 			BufferedReader br = new BufferedReader(new InputStreamReader(document.getInputStream()));
 			while ((line = br.readLine()) != null) {
 				lines.add(line);
-				System.out.println(line);
 			}
 			
 		} catch (IOException e) {
@@ -36,7 +35,10 @@ public class CompareWorker implements WorkerPlan {
 		}
 		
 		try {
-			contactDatabase(title,lines);
+			serverResult = contactDatabase(title,lines);
+			System.out.println("Null? : " + serverResult);
+			setServerResult(serverResult);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -58,17 +60,18 @@ public class CompareWorker implements WorkerPlan {
 	public void setServerResult(ArrayList<String> sResult) {
 		this.serverResult = sResult;
 	}
+	
+	
 
 	public String getTitle() {
 		return title;
 	}
 	
-	public void contactDatabase(String s,ArrayList<String> text) throws Exception {
+	public ArrayList<String> contactDatabase(String s,ArrayList<String> text) throws Exception {
 		System.out.println("Sending file to databse...");
 		Database db = new Database(s,text);
 		System.out.println("Files being compared...");
-		db.compareHandeler();
-		setServerResult(db.getDbResults());
+		return db.compareHandeler();
 	}
 	
 }

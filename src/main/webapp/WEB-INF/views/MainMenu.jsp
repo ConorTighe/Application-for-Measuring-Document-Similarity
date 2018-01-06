@@ -8,7 +8,7 @@
 	<tr>
 		<td valign="top">
 
-			<form bgcolor="white" method="POST" enctype="multipart/form-data" action="/MainMenu">
+			<form bgcolor="white" method="POST" enctype="multipart/form-data" action="MainMenu">
 				<fieldset>
 					<legend><h3>Specify Details For Comparing</h3></legend>
 					<b>This form will compare your document to others on the server</b><br>
@@ -16,7 +16,7 @@
 					<input name="txtTitle" type="text" size="50"/>
 					<p/>
 					<input type="file" name="txtDocument"/>
-					<center><input type="submit" value="Compare Document"></center>
+					<input type="submit" value="Compare Document">
 				</fieldset>							
 			</form>	
 			
@@ -28,7 +28,7 @@
 					<input name="newTitle" type="text" size="50"/>
 					<p/>
 					<input type="file" name="newDocument"/>
-					<center><input type="submit" value="Compare Document"></center>
+					<center><input type="submit" value="Add Document"></center>
 				</fieldset>							
 			</form>	
 

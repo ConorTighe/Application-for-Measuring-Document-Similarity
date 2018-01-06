@@ -7,22 +7,32 @@ import javax.servlet.http.Part;
 
 public class MenuService {
 	
-	WorkerPool pool = new WorkerPool();
+	WorkerThreadFactory WorkerFactory = new WorkerThreadFactory();
+	
 	public MenuService() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
-	public ArrayList<String> CompareService(String t, Part p) {
-		ArrayList<String> result;
+	public ArrayList<String> CompareService(String t, Part p, ArrayList<String> result) throws InterruptedException {
+		Thread job;
 		CompareWorker compareJob = new CompareWorker(t,p);
-		result = pool.addJob(compareJob);
+		WorkerFactory.setPrefix(compareJob.getJobName());
+		job = WorkerFactory.newThread(compareJob);
+		try {
+			job.start();
+			job.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		result = compareJob.getServerResult();
 		return result;
 	}
 
 	public ArrayList<String> AddingService(String t, Part p) {
-		ArrayList<String> result;
+		ArrayList<String> result = null;
 		AddingWorker addingJob = new AddingWorker(t,p);
-		result = pool.addJob(addingJob);
+	    //result = pool.addJob(addingJob);
 		return result;
 	}
 	

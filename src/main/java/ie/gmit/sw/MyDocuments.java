@@ -13,19 +13,18 @@ public class MyDocuments implements DocumentMiddleware {
     
 	private String title;
 	private ArrayList<String> text;
-	private ArrayList<String> results;
+	private ArrayList<String> results = new ArrayList<String>();
 	final static String DB_NAME = System.getProperty("user.home") + "/formula1.db4o";
 	static final long serialVersionUID = 1L;
 	DocumentLayout document = new Document("ArtOfWar","Sun Tzu");
 	ObjectContainer db;
-	ObjectSet setResult;
-    
+	ObjectSet<Document> setResult;
 	public MyDocuments(String s, ArrayList<String> t) throws Exception {
 		this.title = s;
 		this.text = t;
 		//Set up DB
 		initDB();
-		this.setResult = db.queryByExample(Document.class);
+		this.setResult = db.queryByExample(document);
 	
 	}
 	
@@ -51,11 +50,10 @@ public class MyDocuments implements DocumentMiddleware {
 		System.out.println(setResult.size());
 		
 		while(setResult.hasNext()) {
-			DocumentLayout temp = new Document();
-			System.out.println(setResult.next());
-			temp = (DocumentLayout) setResult.next();
-			tempLocation = temp.loadDoc();
-			BufferedReader br = new BufferedReader(new FileReader(tempLocation));
+			Document temp = (Document) setResult.next();
+			System.out.println(temp);
+			System.out.println("got here");
+			BufferedReader br = new BufferedReader(new FileReader(temp.toString()));
 			while ((line = br.readLine()) != null) {
 				serverResults.add(line);
 			}
@@ -66,6 +64,9 @@ public class MyDocuments implements DocumentMiddleware {
 			      }
 			  }
 			float percent = (float) match * 100 / text.size();
+			System.out.println(temp.getTitle());
+			System.out.println(temp.getAuthor());
+			System.out.println(percent);
 		    results.add(temp.getTitle()+ " by " + temp.getAuthor() + " - similarity: %" + percent);
 		    br.close();
 		}

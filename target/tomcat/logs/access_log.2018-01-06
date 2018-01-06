@@ -1,0 +1,13 @@
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:19:12 +0000] "GET / HTTP/1.1" 200 1510 http-bio-8080-exec-1 697
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:19:12 +0000] "GET /static/basic.css HTTP/1.1" 404 983 http-bio-8080-exec-2 10
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:19:13 +0000] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-3 4
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:19:31 +0000] "POST /MainMenu HTTP/1.1" 500 1411 http-bio-8080-exec-4 58
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:28:53 +0000] "GET / HTTP/1.1" 200 1510 http-bio-8080-exec-1 263
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:28:54 +0000] "GET /static/basic.css HTTP/1.1" 404 983 http-bio-8080-exec-2 8
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:29:01 +0000] "POST /MainMenu HTTP/1.1" 500 1411 http-bio-8080-exec-3 65
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:31:46 +0000] "GET / HTTP/1.1" 200 1510 http-bio-8080-exec-1 291
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:31:46 +0000] "GET /static/basic.css HTTP/1.1" 404 983 http-bio-8080-exec-2 14
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:31:55 +0000] "POST /MainMenu HTTP/1.1" 200 204 http-bio-8080-exec-3 1674
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:38:10 +0000] "GET /MainMenu HTTP/1.1" 200 1510 http-bio-8080-exec-1 222
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:38:10 +0000] "GET /static/basic.css HTTP/1.1" 404 983 http-bio-8080-exec-2 7
+0:0:0:0:0:0:0:1 - - [06/Jan/2018:17:38:18 +0000] "POST /MainMenu HTTP/1.1" 200 204 http-bio-8080-exec-3 1321

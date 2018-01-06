@@ -25,12 +25,12 @@ public abstract class DocumentLayout {
 		return author;
 	}
 	
-	public String getLocation() {
-		return location;
+	public void loadDoc() {
+		this.location = "src\\main\\resources\\" + getTitle() + ".txt";
 	}
-	
-	public String loadDoc() {
-		this.location = "AOOProject//DatabaseFiles//" + getTitle() + ".txt";
+
+	@Override
+	public String toString() {
 		return location;
 	}
 	
