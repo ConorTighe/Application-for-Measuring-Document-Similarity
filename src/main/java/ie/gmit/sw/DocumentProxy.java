@@ -1,6 +1,5 @@
 package ie.gmit.sw;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class DocumentProxy implements DocumentMiddleware {
@@ -21,9 +20,11 @@ public class DocumentProxy implements DocumentMiddleware {
 		return docs.compareDocument();
 	}
 
-	public String addDocument(String s, ArrayList<String> f) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public String addDocument(String n,String a,ArrayList<String> f) throws Exception {
+		if(docs == null){
+			docs = new MyDocuments(fileName, text);
+	    }
+		return docs.addDocument(n,a,f);
 	}
 
 }

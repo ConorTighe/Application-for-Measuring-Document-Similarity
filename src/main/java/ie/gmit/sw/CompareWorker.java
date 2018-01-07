@@ -26,7 +26,12 @@ public class CompareWorker implements WorkerPlan {
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(document.getInputStream()));
 			while ((line = br.readLine()) != null) {
-				lines.add(line);
+				// Split lines into shingles
+				String[] words = line.split(" ");    
+				
+				for ( String w : words) {
+					lines.add(w);
+				}	
 			}
 			
 		} catch (IOException e) {
@@ -69,9 +74,9 @@ public class CompareWorker implements WorkerPlan {
 	
 	public ArrayList<String> contactDatabase(String s,ArrayList<String> text) throws Exception {
 		System.out.println("Sending file to databse...");
-		Database db = new Database(s,text);
+		db = new Database(s,text);
 		System.out.println("Files being compared...");
-		return db.compareHandeler();
+		return db.compareHandler();
 	}
 	
 }

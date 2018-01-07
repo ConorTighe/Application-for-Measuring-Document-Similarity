@@ -2,8 +2,6 @@ package ie.gmit.sw;
 
 import java.util.ArrayList;
 
-import javax.servlet.http.Part;
-
 public interface WorkerPlan extends Runnable {
 
 	// For threads to run the code

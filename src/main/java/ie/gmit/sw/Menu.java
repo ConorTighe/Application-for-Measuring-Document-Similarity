@@ -1,6 +1,5 @@
 package ie.gmit.sw;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import com.db4o.*;
 
 @WebServlet(urlPatterns = "/MainMenu")
 @MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB. The file size in bytes after which the file will be temporarily stored on disk. The default size is 0 bytes.
@@ -61,8 +59,22 @@ public class Menu extends HttpServlet {
     			out.print("<b>" + comparision + "</b><br>");
     		}
     		out.print("</body></html>");
-    	}else if(request.getParameter("newTitle") != null && request.getParameter("newDocument") != null) {
-    		
+    	}else if(request.getParameter("newTitle") != null && request.getParameter("newDocument")
+    			!= null && request.getParameter("author") != null) {
+    		String title = request.getParameter("newTitle");
+    		String author = request.getParameter("author");
+    		Part document = request.getPart("newDocument");
+    		System.out.println("POST add to server");
+    		result = menu.AddingService(title, author, document);
+    		System.out.println("server res: " + result);
+    		out.print("<html><head><title>A JEE Application for Measuring Document Similarity</title>");		
+    		out.print("</head>");		
+    		out.print("<body>");
+    		out.print("<H3>Results from adding: " + title + "</H3>");
+    		for (String comparision: result) {
+    			out.print("<b>" + comparision + "</b><br>");
+    		}
+    		out.print("</body></html>");
     	}
     		
     }

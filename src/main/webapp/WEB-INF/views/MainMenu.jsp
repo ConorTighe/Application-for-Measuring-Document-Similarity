@@ -27,6 +27,9 @@
 					<b>Document Title :</b><br>
 					<input name="newTitle" type="text" size="50"/>
 					<p/>
+					<b>Document Author :</b><br>
+					<input name="author" type="text" size="50"/>
+					<p/>
 					<input type="file" name="newDocument"/>
 					<center><input type="submit" value="Add Document"></center>
 				</fieldset>							

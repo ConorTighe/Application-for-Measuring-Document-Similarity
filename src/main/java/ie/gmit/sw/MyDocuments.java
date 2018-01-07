@@ -1,10 +1,8 @@
 package ie.gmit.sw;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 import com.db4o.*;
@@ -46,7 +44,6 @@ public class MyDocuments implements DocumentMiddleware {
 		String line = null;
 		ArrayList<String> serverResults = new ArrayList<String>();
 		int match = 0;
-		String tempLocation = "";
 		System.out.println(setResult.size());
 		
 		while(setResult.hasNext()) {
@@ -55,7 +52,12 @@ public class MyDocuments implements DocumentMiddleware {
 			System.out.println("got here");
 			BufferedReader br = new BufferedReader(new FileReader(temp.toString()));
 			while ((line = br.readLine()) != null) {
-				serverResults.add(line);
+				// Split lines into shingles
+				String[] words = line.split(" ");    
+				
+				for ( String w : words) {
+					serverResults.add(w);
+				}
 			}
 			
 			for(int counter = 0; counter < text.size(); counter++) {
@@ -74,9 +76,24 @@ public class MyDocuments implements DocumentMiddleware {
 		
 	}
 
-	public String addDocument(String s, ArrayList<String> f) throws Exception {
-		return null;
-	
+	public String addDocument(String name,String a, ArrayList<String> f) throws Exception {
+		String res;
+		FileWriter writer = new FileWriter("src\\main\\resources\\" + name + ".txt"); 
+		for(String str: f) {
+		  writer.write(str);
+		}
+		writer.close();
+		
+		DocumentLayout newdocument = new Document(name,a);
+		try {
+			db.store(newdocument);
+			res = name + "Saved to database";
+		}catch(Exception e){
+			System.out.println("Problem saving to DB: ");
+			System.out.println(e);
+			res = "Save failed";
+		}
+		return res;
 	}
 	
 	public void display() {

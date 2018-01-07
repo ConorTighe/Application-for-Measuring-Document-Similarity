@@ -1,6 +1,5 @@
 package ie.gmit.sw;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import javax.servlet.http.Part;
@@ -29,10 +28,20 @@ public class MenuService {
 		return result;
 	}
 
-	public ArrayList<String> AddingService(String t, Part p) {
+	public ArrayList<String> AddingService(String t,String a, Part p) {
+		Thread job;
 		ArrayList<String> result = null;
-		AddingWorker addingJob = new AddingWorker(t,p);
-	    //result = pool.addJob(addingJob);
+		AddingWorker addingJob = new AddingWorker(t,a,p);
+		WorkerFactory.setPrefix(addingJob.getJobName());
+		job = WorkerFactory.newThread(addingJob);
+		try {
+			job.start();
+			job.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		result = addingJob.getServerResult();
 		return result;
 	}
 	

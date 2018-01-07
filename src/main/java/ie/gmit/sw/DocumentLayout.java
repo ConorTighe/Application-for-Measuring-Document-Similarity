@@ -1,6 +1,5 @@
 package ie.gmit.sw;
 
-import java.util.ArrayList;
 
 /* The blueprint for all our document objects for db4o */
 public abstract class DocumentLayout {
