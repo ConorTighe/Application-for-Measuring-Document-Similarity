@@ -2,6 +2,7 @@ package ie.gmit.sw;
 
 import java.util.concurrent.ThreadFactory;
 
+// A thread factory to ensure consistency among workers
 public class WorkerThreadFactory implements ThreadFactory {
 	   private int counter = 0;
 	   private String prefix = "";

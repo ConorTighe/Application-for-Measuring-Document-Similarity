@@ -1,7 +1,8 @@
 package ie.gmit.sw;
 
-
-/* The blueprint for all our document objects for db4o */
+/* The blueprint for all our document objects for db4o, decided to use the Builder pattern for this
+ * as it would allow us to easily add documents later on, following closed for 
+ * Modifications open for extension principle */
 public abstract class DocumentLayout {
 
 	private String title;

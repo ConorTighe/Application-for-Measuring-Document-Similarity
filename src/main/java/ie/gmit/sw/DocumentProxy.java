@@ -2,8 +2,11 @@ package ie.gmit.sw;
 
 import java.util.ArrayList;
 
+/* Our proxy to restrict direct access to there server docs while also stopping multiple instances of
+/* MyDocuments being created */
 public class DocumentProxy implements DocumentMiddleware {
 
+	// variables
 	private MyDocuments docs;
 	private String fileName;
 	private ArrayList<String> text;

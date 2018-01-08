@@ -12,14 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-
+// Web servlet for our JSP main menu
 @WebServlet(urlPatterns = "/MainMenu")
 @MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB. The file size in bytes after which the file will be temporarily stored on disk. The default size is 0 bytes.
 maxFileSize=1024*1024*10,      // 10MB. The maximum size allowed for uploaded files, in bytes
 maxRequestSize=1024*1024*50)   // 50MB. he maximum size allowed for a multipart/form-data request, in bytes.
 public class Menu extends HttpServlet {
 
+	// Serialize this class to assure compatibility
 	private static final long serialVersionUID = 1L;
+	// I encapsulate all our thread stuff and database calls in a service class to keep this page easier to read.
 	MenuService menu = new MenuService();
 	public Menu() {
 		super();
@@ -38,19 +40,18 @@ public class Menu extends HttpServlet {
     	ArrayList<String> result = null;
     	response.setContentType("text/html"); 
     	PrintWriter out = response.getWriter();
-    	System.out.println(request.getParameter("txtTitle"));
-    	System.out.println(request.getPart("txtDocument"));
+    	// Check what we got from out JSP page
     	if (request.getParameter("txtTitle") != null && request.getPart("txtDocument") != null) {
     		String title = request.getParameter("txtTitle");
     		Part document = request.getPart("txtDocument");
-    		System.out.println("POST to server");
+    		// pass our user input to the comparing service
     		try {
     			result = menu.CompareService(title, document, result);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-    		System.out.println("server res: " + result);
+    		// Print out results from server
     		out.print("<html><head><title>A JEE Application for Measuring Document Similarity</title>");		
     		out.print("</head>");		
     		out.print("<body>");
@@ -64,16 +65,23 @@ public class Menu extends HttpServlet {
     		String title = request.getParameter("newTitle");
     		String author = request.getParameter("author");
     		Part document = request.getPart("newDocument");
-    		System.out.println("POST add to server");
+    		// give input to adding service and store server response
     		result = menu.AddingService(title, author, document);
+    		// output response to our page
     		System.out.println("server res: " + result);
     		out.print("<html><head><title>A JEE Application for Measuring Document Similarity</title>");		
     		out.print("</head>");		
     		out.print("<body>");
     		out.print("<H3>Results from adding: " + title + "</H3>");
-    		for (String comparision: result) {
-    			out.print("<b>" + comparision + "</b><br>");
+    		for (String res: result) {
+    			out.print("<b>" + res + "</b><br>");
     		}
+    		out.print("</body></html>");
+    	}else {
+    		out.print("<html><head><title>A JEE Application for Measuring Document Similarity</title>");		
+    		out.print("</head>");		
+    		out.print("<body>");
+    		out.print("<H3>There was an error processing your input please try again</H3>");
     		out.print("</body></html>");
     	}
     		

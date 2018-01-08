@@ -2,6 +2,7 @@ package ie.gmit.sw;
 
 import java.util.ArrayList;
 
+// Basic runnable builder design to ensure the workers use abstraction
 public interface WorkerPlan extends Runnable {
 
 	// For threads to run the code
